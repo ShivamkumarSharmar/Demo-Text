@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Faq's</title>
+    <link href="scss/style.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1D4ED8',
+                        background: '#F1F5F9',
+                        darkbg: '#0F172A',
+                        card: '#FFFFFF',
+                        darkcard: '#1E293B',
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+
+<body class="bg-background text-gray-800 dark:bg-darkbg dark:text-white">
+
+    <div class="flex min-h-screen">
+        <!-- Sidebar -->
+        <div
+            class=" p-[16px] border-transparent inset-y-0 z-10 hidden md:h-svh md:w-[250px] w-[90%] transition-[left,right,width] duration-200 ease-linear md:flex left-0 group-data-[collapsible=offcanvas]:left-[calc(var(--sidebar-width)*-1)] group-data-[collapsible=icon]:w-(--sidebar-width-icon) group-data-[side=left]:border-r group-data-[side=right]:border-l">
+            <aside
+                class="bg-gradient dark:border-[var(--dark-border-color)]  border-[1px] rounded-lg group-data-[variant=floating]:border-sidebar-border flex h-full w-full flex-col group-data-[variant=floating]:rounded-lg group-data-[variant=floating]:border group-data-[variant=floating]:shadow-sm p-[12px]">
+                <!-- Logo Section -->
+                <div class="flex items-center gap-2 mb-4 ">
+                    <img src="images/logo-dark.png" width="120" height="60" alt="logo-image" class="dark:hidden mx-auto" />
+                    <img src="images/logo.png" width="120" height="60" alt="logo-image" class="hidden dark:inline mx-auto" />
+                </div>
+                <!-- Menu Section -->
+                <nav class="flex flex-col gap-2 mt-5">
+                    <a href="/"
+                        class="flex items-center gap-2 p-2 rounded-md transition-colors duration-200 text-black dark:text-white hover:bg-white dark:hover:bg-[#1337B4]">
+                        <!-- Dashboard Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-layout-dashboard-icon lucide-layout-dashboard">
+                            <rect width="7" height="9" x="3" y="3" rx="1" />
+                            <rect width="7" height="5" x="14" y="3" rx="1" />
+                            <rect width="7" height="9" x="14" y="12" rx="1" />
+                            <rect width="7" height="5" x="3" y="16" rx="1" />
+                        </svg>
+                        <span>Dashboard</span>
+                    </a>
+                    <a href="/agents.html"
+                        class="flex items-center gap-2 p-2 rounded-md transition-colors duration-200 text-black dark:text-white hover:bg-white dark:hover:bg-[#1337B4]">
+                        <!-- Briefcase Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-user-check-icon lucide-user-check">
+                            <path d="m16 11 2 2 4-4" />
+                            <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                            <circle cx="9" cy="7" r="4" />
+                        </svg>
+                        <span>Agents</span>
+                    </a>
+                    <a href="/calling.html"
+                        class="flex items-center gap-2 p-2 rounded-md transition-colors duration-200 text-black dark:text-white hover:bg-white dark:hover:bg-[#1337B4]">
+                        <!-- Document Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-headset-icon lucide-headset">
+                            <path
+                                d="M3 11h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-5Zm0 0a9 9 0 1 1 18 0m0 0v5a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3Z" />
+                            <path d="M21 16v2a4 4 0 0 1-4 4h-5" />
+                        </svg>
+                        <span>Calling</span>
+                    </a>
+                    <a href="/messages.html"
+                        class="flex items-center gap-2 p-2 rounded-md transition-colors duration-200 text-black dark:text-white hover:bg-white dark:hover:bg-[#1337B4]">
+                        <!-- Document Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-message-square-more-icon lucide-message-square-more">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                            <path d="M8 10h.01" />
+                            <path d="M12 10h.01" />
+                            <path d="M16 10h.01" />
+                        </svg>
+                        <span>Messages</span>
+                    </a>
+                    <a href="/contacts.html"
+                        class="flex items-center gap-2 p-2 rounded-md transition-colors duration-200 text-black dark:text-white hover:bg-white dark:hover:bg-[#1337B4]">
+                        <!-- Document Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-notebook-tabs-icon lucide-notebook-tabs">
+                            <path d="M2 6h4" />
+                            <path d="M2 10h4" />
+                            <path d="M2 14h4" />
+                            <path d="M2 18h4" />
+                            <rect width="16" height="20" x="4" y="2" rx="2" />
+                            <path d="M15 2v20" />
+                            <path d="M15 7h5" />
+                            <path d="M15 12h5" />
+                            <path d="M15 17h5" />
+                        </svg>
+                        <span>Contacts</span>
+                    </a>
+                    <a href="/privacy.html"
+                        class="flex items-center gap-2 p-2 rounded-md transition-colors duration-200 text-black dark:text-white hover:bg-white dark:hover:bg-[#1337B4]">
+                        <!-- Document Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-globe-lock-icon lucide-globe-lock">
+                            <path d="M15.686 15A14.5 14.5 0 0 1 12 22a14.5 14.5 0 0 1 0-20 10 10 0 1 0 9.542 13" />
+                            <path d="M2 12h8.5" />
+                            <path d="M20 6V4a2 2 0 1 0-4 0v2" />
+                            <rect width="8" height="5" x="14" y="6" rx="1" />
+                        </svg>
+                        <span>Privacy</span>
+                    </a>
+                    <a href="/tearms.html"
+                        class="flex items-center gap-2 p-2 rounded-md transition-colors duration-200 text-black dark:text-white hover:bg-white dark:hover:bg-[#1337B4]">
+                        <!-- Document Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-globe-lock-icon lucide-globe-lock">
+                            <path d="M15.686 15A14.5 14.5 0 0 1 12 22a14.5 14.5 0 0 1 0-20 10 10 0 1 0 9.542 13" />
+                            <path d="M2 12h8.5" />
+                            <path d="M20 6V4a2 2 0 1 0-4 0v2" />
+                            <rect width="8" height="5" x="14" y="6" rx="1" />
+                        </svg>
+                        <span>Terms</span>
+                    </a>
+                    <a href="/faqs.html"
+                        class="flex items-center gap-2 p-2 rounded-md transition-colors duration-200 text-black bg-white active dark:bg-[#1337B4] dark:text-white">
+                        <!-- Document Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="lucide lucide-globe-lock-icon lucide-globe-lock">
+                            <path d="M15.686 15A14.5 14.5 0 0 1 12 22a14.5 14.5 0 0 1 0-20 10 10 0 1 0 9.542 13" />
+                            <path d="M2 12h8.5" />
+                            <path d="M20 6V4a2 2 0 1 0-4 0v2" />
+                            <rect width="8" height="5" x="14" y="6" rx="1" />
+                        </svg>
+                        <span>FAQ's</span>
+                    </a>
+                </nav>
+
+            </aside>
+        </div>
+        <!-- Main Content -->
+        <main class="flex-1 p-6 space-y-6">
+
+            <header class="flex justify-between h-[72px]">
+                <div class="flex items-center gap-3">
+                    <!-- Sidebar Trigger Button -->
+                    <button id="sidebarToggle"
+                        class="bg-gradient-to-br from-[#E3F3FF] via-[#BAE1FF] to-[#EEF8FF] border border-[#94D0FF] rounded p-1 cursor-pointer h-12 w-12 flex items-center justify-center md:hidden dark:bg-gradient-to-br dark:from-[#1E293B] dark:via-[#1337B4] dark:to-[#0F172A] dark:border-gray-700">
+                        <!-- Sidebar Icon (Hamburger) -->
+                        <svg width="24" height="24" fill="none" viewBox="0 0 24 24" class="text-black dark:text-white">
+                            <rect x="4" y="6" width="16" height="2" rx="1" fill="currentColor" />
+                            <rect x="4" y="11" width="16" height="2" rx="1" fill="currentColor" />
+                            <rect x="4" y="16" width="16" height="2" rx="1" fill="currentColor" />
+                        </svg>
+                    </button>
+
+                    <h1 class="text-xl font-semibold flex items-center gap-3">
+                        <span class="cursor-pointer">
+                            <!-- Back Arrow Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="16" fill="none">
+                                <path fill="#101015"
+                                    d="M.293 7.293a1 1 0 0 0 0 1.414l6.364 6.364a1 1 0 0 0 1.414-1.414L2.414 8l5.657-5.657A1 1 0 0 0 6.657.93zM17 9a1 1 0 1 0 0-2zM1 8v1h16V7H1z">
+                                </path>
+                            </svg>
+                        </span>
+                        FAQ's
+                    </h1>
+                </div>
+                <div class="flex gap-4 items-center">
+                    <!-- Dark Mode Switch -->
+                    <label class="switch relative inline-flex items-center cursor-pointer">
+                        <input class="switch__input " type="checkbox" role="switch"
+                            onclick="document.documentElement.classList.toggle('dark')" aria-label="Toggle dark mode" />
+                        <span class="flex items-center">
+                            <!-- Dark Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="lucide lucide-sun-icon lucide-sun switch__icon switch__icon--dark">
+                                <circle cx="12" cy="12" r="4" />
+                                <path d="M12 2v2" />
+                                <path d="M12 20v2" />
+                                <path d="m4.93 4.93 1.41 1.41" />
+                                <path d="m17.66 17.66 1.41 1.41" />
+                                <path d="M2 12h2" />
+                                <path d="M20 12h2" />
+                                <path d="m6.34 17.66-1.41 1.41" />
+                                <path d="m19.07 4.93-1.41 1.41" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round"
+                                class="lucide lucide-sun-icon lucide-sun switch__icon switch__icon--dark">>
+                                <circle cx="12" cy="12" r="4" />
+                                <path d="M12 2v2" />
+                                <path d="M12 20v2" />
+                                <path d="m4.93 4.93 1.41 1.41" />
+                                <path d="m17.66 17.66 1.41 1.41" />
+                                <path d="M2 12h2" />
+                                <path d="M20 12h2" />
+                                <path d="m6.34 17.66-1.41 1.41" />
+                                <path d="m19.07 4.93-1.41 1.41" />
+                            </svg>
+                            <!-- Light Icon -->
+                            <svg class="switch__icon switch__icon--light" viewBox="0 0 12 12" width="18" height="18"
+                                aria-hidden="true">
+                                <g fill="none" stroke="#fff" stroke-width="1" stroke-linejoin="round"
+                                    transform="rotate(-45,6,6)">
+                                    <path
+                                        d="m9,10c-2.209,0-4-1.791-4-4s1.791-4,4-4c.304,0,.598.041.883.105-.995-.992-2.367-1.605-3.883-1.605C2.962.5.5,2.962.5,6s2.462,5.5,5.5,5.5c1.516,0,2.888-.613,3.883-1.605-.285.064-.578.105-.883.105Z" />
+                                </g>
+                            </svg>
+                            <span class="switch__sr ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">Dark
+                                Mode</span>
+                        </span>
+                    </label>
+                    <!-- User Dropdown -->
+                    <div class="relative group">
+                        <button class="flex items-center gap-2 focus:outline-none">
+                            <!-- Avatar -->
+                            <span
+                                class="inline-flex items-center justify-center w-9 h-9 rounded-full bg-blue-200 text-blue-800 font-bold">JD</span>
+                            <!-- Carat Icon -->
+                            <svg width="16" height="16" fill="none" viewBox="0 0 24 24">
+                                <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" />
+                            </svg>
+                        </button>
+                        <!-- Dropdown Content -->
+                        <div
+                            class="absolute right-0 mt-2 w-72 bg-white dark:bg-[#101015] border border-[#BAE1FF] dark:border-[#282828] rounded-lg shadow-lg opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity z-50">
+                            <div class="flex items-center gap-3 p-3 bg-[#BAE1FF] dark:bg-[#101015] rounded-t-lg">
+                                <span
+                                    class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-blue-200 text-blue-800 font-bold">JD</span>
+                                <div>
+                                    <p class="text-base font-medium">John Doe</p>
+                                    <p class="text-gray-500 text-sm font-normal">john.doe@email.com</p>
+                                </div>
+                            </div>
+                            <button
+                                class="flex items-center gap-2 w-full text-left p-3 px-4 hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer">
+                                <!-- Settings Icon -->
+                                <svg class="size-5" width="20" height="20" fill="none" viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2" />
+                                    <path
+                                        d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h.09A1.65 1.65 0 0 0 9 3.09V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h.09a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v.09a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"
+                                        stroke="currentColor" stroke-width="2" />
+                                </svg>
+                                Settings
+                            </button>
+                            <button
+                                class="flex items-center gap-2 w-full text-left p-3 px-4 hover:bg-gray-100 dark:hover:bg-gray-800 cursor-pointer" onclick="window.location.href='login.html';">
+                                <!-- Logout Icon -->
+                                <svg class="size-5" width="20" height="20" fill="none" viewBox="0 0 24 24">
+                                    <path d="M17 16l4-4m0 0l-4-4m4 4H7" stroke="currentColor" stroke-width="2"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <path d="M3 12a9 9 0 1 1 18 0 9 9 0 0 1-18 0z" stroke="currentColor"
+                                        stroke-width="2" />
+                                </svg>
+                                Logout
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </header>
+            <div class=" pt-0">
+                <!-- Dashboard Page -->
+                <div class="dashboard-page">
+                    <div
+                        class="bordred-card rounded-xl p-4 bg-white/50 dark:bg-[var(--color-black)]/50 overflow-x-auto">
+                        <h2 class="text-lg font-semibold mb-4">Faq's</h2>
+                        <div class="space-y-4">
+                            <div>
+                                <h3 class="font-semibold text-base mb-1">Q: What is this platform about?</h3>
+                                <p class="text-gray-700 dark:text-gray-300">A: This platform is designed to help users manage their contacts, messages, and calling activities efficiently.</p>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-base mb-1">Q: How do I add a new agent?</h3>
+                                <p class="text-gray-700 dark:text-gray-300">A: Navigate to the "Agents" section from the sidebar and click on the "Add Agent" button. Fill in the required details and save.</p>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-base mb-1">Q: Can I switch between light and dark mode?</h3>
+                                <p class="text-gray-700 dark:text-gray-300">A: Yes, you can toggle between light and dark mode using the switch in the top right corner of the page.</p>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-base mb-1">Q: Is my data secure?</h3>
+                                <p class="text-gray-700 dark:text-gray-300">A: We take data security seriously and use industry-standard practices to protect your information.</p>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-base mb-1">Q: Who can I contact for support?</h3>
+                                <p class="text-gray-700 dark:text-gray-300">A: For any support queries, please reach out to our support team via the contact form or email provided on the website.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+
+        // Sidebar open/close logic for mobile
+        const sidebar = document.querySelector('.md\\:flex');
+        const sidebarToggle = document.getElementById('sidebarToggle');
+
+        // Create overlay for outside click
+        let overlay = document.createElement('div');
+        overlay.id = 'sidebarOverlay';
+        overlay.style.position = 'fixed';
+        overlay.style.inset = '0';
+        overlay.style.background = 'rgba(0,0,0,0.3)';
+        overlay.style.zIndex = '0';
+        overlay.style.display = 'none';
+
+        document.body.appendChild(overlay);
+
+        function openSidebar() {
+            sidebar.classList.remove('hidden');
+            sidebar.classList.add('fixed', 'left-0', 'top-0', 'h-full', 'bg-white', 'dark:bg-darkbg');
+            overlay.style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeSidebar() {
+            sidebar.classList.add('hidden');
+            sidebar.classList.remove('fixed', 'left-0', 'top-0', 'h-full', 'bg-white', 'dark:bg-darkbg');
+            overlay.style.display = 'none';
+            document.body.style.overflow = '';
+        }
+
+    </script>
+</body>
+
+</html>

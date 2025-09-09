@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+    <link href="scss/style.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1D4ED8',
+                        background: '#F1F5F9',
+                        darkbg: '#0F172A',
+                        card: '#FFFFFF',
+                        darkcard: '#1E293B',
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+
+<body class="bg-background text-gray-800 dark:bg-darkbg dark:text-white">
+    <div>
+        <button onclick="window.location.href='/login.html'"
+            class="bg-[linear-gradient(173.4deg,_#E3F3FF_0%,_#BAE1FF_51.59%,_#EEF8FF_100.89%)] dark:bg-[var(--color-black)] dark:border-[var(--dark-border-color)] border border-[#94D0FF] dark:bg-none rounded p-2 cursor-pointer absolute left-[50px] top-[30px]">
+            <!-- Replace with an SVG for ChevronLeft -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <div class="flex justify-center items-center min-h-screen flex-col">
+            <div class="flex-1 flex justify-center items-center p-4">
+                <div class="w-[500px] bg-white/50 mx-auto rounded shadow">
+                    <div class="text-center p-6 pb-0">
+                        <div class="flex justify-center items-center gap-4 mb-8">
+                            <img src="images/logo-dark.png" alt="Logo" width="120" height="60" />                 
+                        </div>
+                        <p class="font-semibold text-xl">Create account</p>
+                        <p class="text-base mb-3 text-gray-600 dark:text-gray-300">
+                            Start your journey towards effortless case review.
+                        </p>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <form>
+                            <div class="grid w-full items-center gap-5">
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="flex flex-col space-y-1.5">
+                                        <label for="firstName" class="mb-3 font-medium">First name</label>
+                                        <input type="text" id="firstName" name="firstName" placeholder="Enter first name"
+                                            class="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary" required />
+                                    </div>
+                                    <div class="flex flex-col space-y-1.5">
+                                        <label for="lastName" class="mb-3 font-medium">Last name</label>
+                                        <input type="text" id="lastName" name="lastName" placeholder="Enter last name"
+                                            class="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary" required />
+                                    </div>
+                                </div>
+                                <div class="flex flex-col space-y-2">
+                                    <label for="email" class="mb-3 font-medium">Email</label>
+                                    <input type="email" id="email" name="email" placeholder="Enter email"
+                                        class="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary" required />
+                                </div>
+                                <div class="flex flex-col space-y-2">
+                                    <label for="password" class="mb-3 font-medium">Password</label>
+                                    <input type="password" id="password" name="password" placeholder="Enter password"
+                                        class="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary" required minlength="8" maxlength="12" />
+                                </div>
+                                <div class="flex flex-col space-y-2">
+                                    <p class="text-[#6D6D6F] font-medium text-sm">Password must contain</p>
+                                    <p class="text-[#6D6D6F] font-medium text-sm flex gap-2 items-center">
+                                        <span class="w-[14px] h-[14px] bg-[#D6D6D6] block rounded-full"></span>
+                                        Minimum 8 characters and maximum 12 characters
+                                    </p>
+                                    <p class="text-[#6D6D6F] font-medium text-sm flex gap-2 items-center">
+                                        <span class="w-[14px] h-[14px] bg-[#D6D6D6] block rounded-full"></span>
+                                        One uppercase character
+                                    </p>
+                                    <p class="text-[#6D6D6F] font-medium text-sm flex gap-2 items-center">
+                                        <span class="w-[14px] h-[14px] bg-[#D6D6D6] block rounded-full"></span>
+                                        One special character
+                                    </p>
+                                </div>
+                                <div class="flex flex-col space-y-2">
+                                    <label for="confirmPassword" class="mb-3 font-medium">Confirm password</label>
+                                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Enter confirm password"
+                                        class="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary" required />
+                                </div>
+                                <div class="flex items-center space-x-2">
+                                    <input type="checkbox" id="agree" name="agree" required class="accent-primary" />
+                                    <label for="agree" class="text-sm font-medium leading-none">I agree to the</label>
+                                    <a href="#" class="text-primary text-sm font-semibold ml-1">Terms</a>
+                                </div>
+                                <button type="submit" class="bg-primary text-white rounded px-4 py-2 font-semibold hover:bg-blue-700 transition-colors w-full">
+                                    Sign up
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="flex justify-center items-center p-4 border-t">
+                        <p class="mb-0 text-gray-500 text-sm">
+                            Already have an account?
+                            <a href="/login.html" class="text-primary text-sm font-semibold ml-1">Sign in</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <footer class="p-4 text-center">
+                <p class="text-gray-400 text-sm">All rights reserved 2025</p>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>

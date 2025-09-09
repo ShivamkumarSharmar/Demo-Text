@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login</title>
+    <link href="scss/style.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#1D4ED8',
+                        background: '#F1F5F9',
+                        darkbg: '#0F172A',
+                        card: '#FFFFFF',
+                        darkcard: '#1E293B',
+                    },
+                },
+            },
+        };
+    </script>
+</head>
+
+<body class="bg-background text-gray-800 dark:bg-darkbg dark:text-white">
+    <div>
+        <button onclick="window.location.href='/'"
+            class="bg-[linear-gradient(173.4deg,_#E3F3FF_0%,_#BAE1FF_51.59%,_#EEF8FF_100.89%)] dark:bg-[var(--color-black)] dark:border-[var(--dark-border-color)] border border-[#94D0FF] dark:bg-none rounded p-2 cursor-pointer absolute left-[50px] top-[30px]">
+            <!-- Replace with an SVG for ChevronLeft -->
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+            </svg>
+        </button>
+        <div class="flex justify-center items-center min-h-screen flex-col">
+            <div class="flex-1 flex justify-center items-center p-4">
+                <div class="w-[500px] bg-white/50 mx-auto rounded shadow">
+                    <div class="text-center p-6">
+                        <div class="flex justify-center items-center gap-4 mb-8">
+                            <img src="images/logo-dark.png" alt="Logo" width="120" height="60" />
+                            <span class="text-2xl font-semibold text-primary"></span>
+                        </div>
+                        <p class="font-semibold text-xl">Welcome back!</p>
+                        <p class="text-base text-gray-600 dark:text-gray-300">
+                            Sign in to your account to continue.
+                        </p>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <form>
+                            <div class="grid w-full items-center gap-3">
+                                <div class="flex flex-col space-y-1.5 mb-4">
+                                    <label for="email" class="mb-3 font-medium">Email</label>
+                                    <input type="email" id="email" name="email" placeholder="Enter your email"
+                                        class="border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-primary" />
+                                </div>
+                                <div class="flex flex-col space-y-1.5">
+                                    <label for="password" class="mb-3 font-medium">Password</label>
+                                    <div class="relative mb-1 grid gap-2">
+                                        <input type="password" id="password" name="password"
+                                            placeholder="Enter your password"
+                                            class="border rounded px-3 py-2 w-full focus:outline-none focus:ring-2 focus:ring-primary" />
+                                        <!-- Eye icon for show/hide password (static) -->
+                                        <svg class="cursor-pointer absolute right-[15px] top-[13px] h-5 w-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.477 0 8.268 2.943 9.542 7-1.274 4.057-5.065 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <div class="flex justify-between mb-4">
+                                    <div class="flex items-center space-x-2">
+                                        <input type="checkbox" id="remember" name="remember" class="accent-primary" />
+                                        <label for="remember" class="text-sm leading-none">Remember me</label>
+                                    </div>
+                                    <a href="/forgot-password.html" class="text-primary text-sm font-semibold hover:underline">Forgot password?</a>
+                                </div>
+                                <button type="submit" class="bg-primary text-white rounded px-4 py-2 font-semibold hover:bg-blue-700 transition-colors">
+                                    Sign in
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="flex justify-center align-center mt-5 pb-4">
+                        <p class="mb-0 text-gray-500 text-sm">
+                            Don't have an account?
+                            <a href="/signup.html" class="text-primary font-semibold hover:underline ml-1">Sign up</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <footer class="p-4 text-center">
+                <p class="text-gray-400 text-sm">All rights reserved 2025</p>
+            </footer>
+        </div>
+    </div>
+</body>
+
+</html>
